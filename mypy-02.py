@@ -1,3 +1,5 @@
+from typing import Union, Iterable, Dict, Callable, Iterator
+
 def greet_all(names: Iterable[str]) -> None:
     for name in names:
         print(f"Hello {name}")
@@ -9,7 +11,6 @@ greet_all(friends1)
 greet_all(friends2)
 
 # As another example, suppose you want to write a function that can accept either ints or strings, but no other types. You can express this using the Union type:
-from typing import Union, Iterable, Dict
 
 def normalize_id(user_id: Union[int, str]) -> str:
     if isinstance(user_id, int):
@@ -58,3 +59,14 @@ my_global_dict_3: Dict[int, float] = {}
 # If you want compatibility with even older versions of Python
 my_global_dict_4 = {} # type: Dict[int, float]
 
+########################## Library stubs and typeshed ##########################
+# Mypy uses library stubs to type check code interacting with library modules, including the Python standard library. A library stub defines a skeleton of the public interface of the library, including classes, variables and functions, and their types. Mypy ships with stubs for the standard library from the typeshed project, which contains library stubs for the Python builtins, the standard library, and selected third-party packages.
+# For example, consider this code:
+x = chr(4)
+print(x)
+
+# For tuples of fixed size, we specify the types of all the elements
+y: tuple[int, str, float] = (3, "yes", 7.5)  # Python 3.9+
+
+# Annotating a callable function value
+# z: Callable[[int, float], float] = f

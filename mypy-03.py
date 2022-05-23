@@ -45,3 +45,4 @@ def called(self, *args: str, **kwargs: str) -> str:
     request = 'hi'
     return request
 
+# Left off at https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html#cheat-sheet-py3

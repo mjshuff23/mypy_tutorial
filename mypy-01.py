@@ -2,6 +2,9 @@
 def greeting(name: str) -> str:
     return f"Hello, {name}!"
 
+def addition(x: int, y: int) -> int:
+    return x + y
+
 print(greeting("Michael"))
 
 # If a function does not explicitly return a value, give it a return type of None. Using a None result in a statically typed context results in a type check error:
@@ -18,6 +21,11 @@ def greetings(name: str = "World", excited: bool = False) -> str:
     return message
 
 print(greetings(excited=True))
+
+def second_addition(x: int = 5, y: int = 10) -> int:
+    return x + y
+
+print(second_addition())
 
 # *args and **kwargs arguments can be annotated like so:
 def stars(*args: int, **kwargs: float) -> None:
